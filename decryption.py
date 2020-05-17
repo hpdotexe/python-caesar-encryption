@@ -4,10 +4,12 @@ def decrypt (text,s):
                 char = text[i]
                 if(char.isupper()):
                     #Decrypt uppercase characters in plain text
-                    result += chr((ord(char) - s-65)%26 + 65)
-                else:
+                    result += chr((ord(char) - s-65) %26 + 65)
+                elif(char.islower()):
                     #Decrypt lowercase characters in plain text
                     result += chr((ord(char) - s-97) %26 + 97)
+                else:
+                    result += chr((ord(char) - s-32) %33 + 32)
         return result
     
 text = input("Enter your cipher : ")

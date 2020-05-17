@@ -3,12 +3,13 @@ def encrypt(text,s):
 	#transverse the plain text
 	for i in range(len(text)):
 		char = text[i]
-		#Encrypt uppercase characters in plain text
+                        #Encrypt uppercase characters in plain text
 		if(char.isupper()):
 			result += chr((ord(char) + s-65)%26 + 65)
-		#Encrypt lowercase characters in plain text
-		else:
+                        #Encrypt lowercase characters in plain text
+		elif(char.islower()):
 			result += chr((ord(char) + s-97) %26 +97)
+		else: result += chr((ord(char) + s-32) %33 +32)
 	return result
 		
 
